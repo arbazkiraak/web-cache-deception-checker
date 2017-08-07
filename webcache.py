@@ -46,7 +46,7 @@ try:
 				print 'Trying ... -> '+str(newurl)+'\n'
 				conditionContent = str(len(newsession.content)+100) # To Avoid False Positivie
 
-				print conditionContent
+				#print conditionContent
 				if len(newsession.content) == len(session.content) | (newsession.status_code) == (session.status_code):
 					print '100% Cache at : '+newurl+str(newsession.status_code)+', Length:'+str(len(newsession.content))+'\n'
 					results.append(newurl)
