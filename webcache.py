@@ -20,49 +20,49 @@ try:
 			#print url
 			unsession = requests.get(url)
 			session = auth.get(url, headers=headers, cookies=cookies)
-			print '\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n'
-			print '[+] Authenticated Detail [+]  '+'\n'
-			print 'URL : '+session.url
-			print 'Status Code : '+str(session.status_code)
-			print 'Content Length: '+str(len(session.content))
-			print '\n'
-			print '[+] UnAuthenticated Details [+]  '+'\n'
-			print 'URL : '+unsession.url
-			print 'Status Code : '+str(unsession.status_code)
-			print 'Content Length : '+str(len(unsession.content))+'\n'
-			print '\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n'
+			print ('\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n')
+			print ('[+] Authenticated Detail [+]  '+'\n')
+			print ('URL : '+session.url)
+			print ('Status Code : '+str(session.status_code))
+			print ('Content Length: '+str(len(session.content)))
+			print ('\n')
+			print ('[+] UnAuthenticated Details [+]  '+'\n')
+			print ('URL : '+unsession.url)
+			print ('Status Code : '+str(unsession.status_code))
+			print ('Content Length : '+str(len(unsession.content))+'\n')
+			print ('\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n')
 			if unsession.history:
 				for resp in unsession.history:
-					print 'Redirected From : '+resp.url
-					print 'With Status Code : '+str(resp.status_code)
-					print '\n'
-				print '\n~~~~~ATTACK~~~~~\n'
+					print ('Redirected From : '+resp.url)
+					print ('With Status Code : '+str(resp.status_code))
+					print ('\n')
+				print ('\n~~~~~ATTACK~~~~~\n')
 			for i in short_extensions:
 				i = i.strip('\n')
 				i = i.strip('\r')
 				i = 'testsheet.'+i
 				newurl=url+i
 				newsession = auth.get(newurl, headers=headers, cookies=cookies)
-				print 'Trying ... -> '+str(newurl)+'\n'
+				print ('Trying ... -> '+str(newurl)+'\n')
 				conditionContent = str(len(newsession.content)+100) # To Avoid False Positivie
 
 				#print conditionContent
 				if len(newsession.content) == len(session.content) | (newsession.status_code) == (session.status_code):
-					print '100% Cache at : '+newurl+str(newsession.status_code)+', Length:'+str(len(newsession.content))+'\n'
+					print ('100% Cache at : '+newurl+str(newsession.status_code)+', Length:'+str(len(newsession.content))+'\n')
 					results.append(newurl)
 				elif len(session.content) > len(newsession.content) & (newsession.status_code) == (session.status_code):
 					if conditionContent >= len(session.content):
-						print 'Possible Cache at : '+newurl+str(newsession.status_code)+', Length:'+str(len(newsession.content))+'\n'
+						print ('Possible Cache at : '+newurl+str(newsession.status_code)+', Length:'+str(len(newsession.content))+'\n')
 						possible_result.append(newurl)
 				else:
-					print 'Not Possible , Status code : '+str(newsession.status_code)+', Length:'+str(len(newsession.content))+'\n'
+					print ('Not Possible , Status code : '+str(newsession.status_code)+', Length:'+str(len(newsession.content))+'\n')
 
 except KeyboardInterrupt as e:
-	print 'Error occured : '+str(e)+'\n'
+	print ('Error occured : '+str(e)+'\n')
 	pass
 
-print '[+] Results '+str(len(results))+'\n'
-print results
+print ('[+] Results '+str(len(results))+'\n')
+print (results)
 
-print '[+] Possible Results '+str(len(possible_result))+'\n'
-print possible_result
+print ('[+] Possible Results '+str(len(possible_result))+'\n')
+print (possible_result)
