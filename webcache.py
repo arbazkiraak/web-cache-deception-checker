@@ -65,8 +65,8 @@ except KeyboardInterrupt as e:
 	print('Error occured : '+str(e)+'\n')
 	pass
 
-print('\033[1;32m[+]\033 Results: \033[1;32m '+str(len(results))+'\n' \033)
+print('\033[1;32m[+]\033 Results: \033[1;32m ' + str(len(results)) + '\n \033')
 print(results)
 
-print('\033[1;32m[+] \033 Possible Results: \033[1;32m '+str(len(possible_result))+'\n'\033)
+print('\033[1;32m[+] \033 Possible Results: \033[1;32m ' + str(len(possible_result)) + '\n \033')
 print(possible_result)
