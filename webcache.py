@@ -6,7 +6,7 @@ import sys
 import browsercookie
 
 headers = {"Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8","Upgrade-Insecure-Requests":"1","Connection":"close","User-Agent":"Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36","Referer":"https://www.site.com/teams/","Accept-Language":"en-US,en;q=0.8"}
-cookies = = browsercookie.chrome()
+cookies = browsercookie.chrome()
 
 short_extensions = ['css','png','jpg','gif','txt','js','swf','bmp']
 large_extensions = ['aif','aiff','css','au','avi','bin','bmp','cab','carb','cct','cdf','class','css','doc',' dcr',' dtd',' gcf',' gff',' gif',' grv',' hdml',' hqx',' ico',' ini',' jpeg',' jpg',' js',' mov',' mp3',' nc',' pct',' ppc',' pws',' swa',' swf',' txt',' vbs',' w32',' wav',' wbmp',' wml',' wmlc',' wmls',' wmlsc',' xsd',' zip']
